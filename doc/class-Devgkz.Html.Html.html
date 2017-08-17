@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
+
+        <title>
+            Class Devgkz\Html\Html
+        </title>
+    </head>
+
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">
+                                Overview
+                            </a>
+                        </li>
+
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
+
+
+
+
+
+                    </ul>
+
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+<div class="pull-left type">
+    <span class="label label-success">Class</span>
+</div>
+
+<ol class="breadcrumb pull-left">
+        <li>
+            <a href="namespace-Devgkz.html">Devgkz</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-Devgkz.Html.html">Html</a>
+        </li>
+
+        <li class="backslash">\</li>
+        <li class="active">Html</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>Html</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Html helper class file.
+            </div>
+        </div>
+
+
+
+
+    <div class="info">
+        
+
+            <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        <a href="source-class-Devgkz.Html.Html.html" class="open-source-code">Open source code</a>
+        <br>
+    </div>
+
+        <table class="summary table table-bordered table-responsive table-striped" id="methods">
+            <tr><th colspan="3">Methods Summary</th></tr>
+
+
+
+<tr id="_encode">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_encode">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#57-61">encode</a>( <span> string <span class="property-name">$text</span> </span> )</code>
+
+            <div class="description">
+                Encodes special characters into HTML entities.
+
+The {@link CApplication::charset application charset} will be used for encoding.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_decode">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_decode">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#69-72">decode</a>( <span> string <span class="property-name">$text</span> </span> )</code>
+
+            <div class="description">
+                Decodes special HTML entities back to the corresponding characters.
+
+This is the opposite of {@link encode()}.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_encodeArray">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_encodeArray">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#81-96">encodeArray</a>( <span> array <span class="property-name">$data</span> </span> )</code>
+
+            <div class="description">
+                Encodes special characters in an array of strings into HTML entities.
+
+Both the array keys and values will be encoded if needed.
+If a value is an array, this method will also encode it recursively.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_tag">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_tag">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#110-118">tag</a>( <span> string <span class="property-name">$tag</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span>, <span> mixed <span class="property-name">$content</span> = <span class="php-keyword1">false</span></span>, <span> bool <span class="property-name">$closeTag</span> = <span class="php-keyword1">true</span></span> )</code>
+
+            <div class="description">
+                Generates an HTML element.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_openTag">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_openTag">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#129-132">openTag</a>( <span> string <span class="property-name">$tag</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates an open HTML element.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_closeTag">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_closeTag">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#139-142">closeTag</a>( <span> string <span class="property-name">$tag</span> </span> )</code>
+
+            <div class="description">
+                Generates a close HTML element.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_cdata">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_cdata">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#149-152">cdata</a>( <span> string <span class="property-name">$text</span> </span> )</code>
+
+            <div class="description">
+                Encloses the given string within a CDATA tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_metaTag">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_metaTag">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#162-172">metaTag</a>( <span> string <span class="property-name">$content</span> </span>, <span> string <span class="property-name">$name</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$httpEquiv</span> = <span class="php-keyword1">NULL</span></span>, <span> array <span class="property-name">$options</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a meta tag that can be inserted in the head section of HTML page.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_linkTag">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_linkTag">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#184-199">linkTag</a>( <span> string <span class="property-name">$relation</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$type</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$href</span> = <span class="php-keyword1">NULL</span></span>, <span> string <span class="property-name">$media</span> = <span class="php-keyword1">NULL</span></span>, <span> array <span class="property-name">$options</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a link tag that can be inserted in the head section of HTML page.
+
+Do not confuse this method with {@link link()}. The latter generates a hyperlink.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_css">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_css">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#207-213">css</a>( <span> string <span class="property-name">$text</span> </span>, <span> string <span class="property-name">$media</span> = <span class="php-quote">''</span></span> )</code>
+
+            <div class="description">
+                Encloses the given CSS content with a CSS tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_cssFile">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_cssFile">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#221-227">cssFile</a>( <span> string <span class="property-name">$url</span> </span>, <span> string <span class="property-name">$media</span> = <span class="php-quote">''</span></span> )</code>
+
+            <div class="description">
+                Links to the specified CSS file.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_script">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_script">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#234-237">script</a>( <span> string <span class="property-name">$text</span> </span> )</code>
+
+            <div class="description">
+                Encloses the given JavaScript within a script tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_scriptFile">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_scriptFile">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#244-247">scriptFile</a>( <span> string <span class="property-name">$url</span> </span> )</code>
+
+            <div class="description">
+                Includes a JavaScript file.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_form">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_form">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#257-260">form</a>( <span> mixed <span class="property-name">$action</span> = <span class="php-quote">''</span></span>, <span> string <span class="property-name">$method</span> = <span class="php-quote">'post'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates an opening form tag.
+
+This is a shortcut to {@link beginForm}.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_beginForm">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_beginForm">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#271-291">beginForm</a>( <span> mixed <span class="property-name">$action</span> = <span class="php-quote">''</span></span>, <span> string <span class="property-name">$method</span> = <span class="php-quote">'post'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates an opening form tag.
+
+Note, only the open tag is generated. A close tag should be placed manually
+at the end of the form.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_endForm">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_endForm">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#297-300">endForm</a>( )</code>
+
+            <div class="description">
+                Generates a closing form tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_formErrors">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_formErrors">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#306-319">formErrors</a>( <span> <span class="property-name">$errors</span> = <span class="php-keyword1">array</span> ( )</span>, <span> <span class="property-name">$header</span> = <span class="php-quote">'&lt;p&gt;&lt;b&gt;Please fix errors:&lt;/b&gt;&lt;/p&gt;'</span></span> )</code>
+
+            <div class="description">
+                Return composed fields errors.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_link">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_link">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#329-335">link</a>( <span> string <span class="property-name">$text</span> </span>, <span> mixed <span class="property-name">$url</span> = <span class="php-quote">'#'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a hyperlink tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_mailto">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_mailto">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#344-350">mailto</a>( <span> string <span class="property-name">$text</span> </span>, <span> string <span class="property-name">$email</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a mailto link.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_image">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_image">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#359-364">image</a>( <span> string <span class="property-name">$src</span> </span>, <span> string <span class="property-name">$alt</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates an image tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_button">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_button">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#372-386">button</a>( <span> string <span class="property-name">$label</span> = <span class="php-quote">'button'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_htmlButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_htmlButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#397-406">htmlButton</a>( <span> string <span class="property-name">$label</span> = <span class="php-quote">'button'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a button using HTML button tag.
+
+This method is similar to {@link button} except that it generates a 'button'
+tag instead of 'input' tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_submitButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_submitButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#414-418">submitButton</a>( <span> string <span class="property-name">$label</span> = <span class="php-quote">'submit'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a submit button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_resetButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_resetButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#426-430">resetButton</a>( <span> string <span class="property-name">$label</span> = <span class="php-quote">'reset'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a reset button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_imageButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_imageButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#438-443">imageButton</a>( <span> string <span class="property-name">$src</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates an image submit button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_linkButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_linkButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#451-457">linkButton</a>( <span> string <span class="property-name">$label</span> = <span class="php-quote">'submit'</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a link submit button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_label">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_label">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#474-493">label</a>( <span> string <span class="property-name">$label</span> </span>, <span> string <span class="property-name">$for</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a label tag.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_textField">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_textField">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#502-505">textField</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a text field input.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_hiddenField">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_hiddenField">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#514-517">hiddenField</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a hidden input.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_passwordField">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_passwordField">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#526-529">passwordField</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a password field input.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_fileField">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_fileField">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#541-544">fileField</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a file input.
+
+Note, you have to set the enclosing form's 'enctype' attribute to be 'multipart/form-data'.
+After the form is submitted, the uploaded file information can be obtained via $_FILES[$name] (see
+PHP documentation).
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_textArea">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_textArea">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#553-562">textArea</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> = <span class="php-quote">''</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a text area input.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_radioButton">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_radioButton">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#575-605">radioButton</a>( <span> string <span class="property-name">$name</span> </span>, <span> bool <span class="property-name">$checked</span> = <span class="php-keyword1">false</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a radio button.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_checkBox">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_checkBox">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#618-648">checkBox</a>( <span> string <span class="property-name">$name</span> </span>, <span> bool <span class="property-name">$checked</span> = <span class="php-keyword1">false</span></span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a check box.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_dropDownList">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_dropDownList">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#679-689">dropDownList</a>( <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$select</span> </span>, <span> array <span class="property-name">$data</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a drop down list.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_dropDownListPopular">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_dropDownListPopular">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#691-702">dropDownListPopular</a>( <span> <span class="property-name">$name</span> </span>, <span> <span class="property-name">$select</span> </span>, <span> <span class="property-name">$data</span> </span>, <span> <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_listBox">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_listBox">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#733-744">listBox</a>( <span> string <span class="property-name">$name</span> </span>, <span> mixed <span class="property-name">$select</span> </span>, <span> array <span class="property-name">$data</span> </span>, <span> array <span class="property-name">$htmlOptions</span> = <span class="php-keyword1">array</span> ( )</span> )</code>
+
+            <div class="description">
+                Generates a list box.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_normalizeUrl">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_normalizeUrl">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#757-766">normalizeUrl</a>( <span> mixed <span class="property-name">$url</span> </span> )</code>
+
+            <div class="description">
+                Normalizes the input parameter to be a valid URL.
+
+If the input parameter is an empty string, the currently requested URL will be returned.
+
+If the input parameter is a non-empty string, it is treated as a valid URL and will
+be returned without any change.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_inputField">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 protected static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_inputField">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#777-788">inputField</a>( <span> string <span class="property-name">$type</span> </span>, <span> string <span class="property-name">$name</span> </span>, <span> string <span class="property-name">$value</span> </span>, <span> array <span class="property-name">$htmlOptions</span> </span> )</code>
+
+            <div class="description">
+                Generates an input HTML tag.
+
+This method generates an input HTML tag based on the given input name and value.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_listData">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_listData">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#804-822">listData</a>( <span> array <span class="property-name">$models</span> </span>, <span> string <span class="property-name">$valueField</span> </span>, <span> string <span class="property-name">$textField</span> </span>, <span> string <span class="property-name">$groupField</span> = <span class="php-quote">''</span></span> )</code>
+
+            <div class="description">
+                Generates the data suitable for list-based HTML elements.
+
+The generated data can be used in {@link dropDownList}, {@link listBox}, {@link checkBoxList},
+{@link radioButtonList}, and their active-versions (such as {@link activeDropDownList}).
+Note, this method does not HTML-encode the generated data. You may call {@link encodeArray} to
+encode it if needed.
+Please refer to the {@link value} method on how to specify value field, text field and group field.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_value">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_value">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#838-850">value</a>( <span> mixed <span class="property-name">$model</span> </span>, <span> string <span class="property-name">$attribute</span> </span>, <span> mixed <span class="property-name">$defaultValue</span> = <span class="php-keyword1">NULL</span></span> )</code>
+
+            <div class="description">
+                Evaluates the value of the specified attribute for the given model.
+
+The attribute name can be given in a dot syntax. For example, if the attribute
+is "author.firstName", this method will return the value of "$model-&gt;author-&gt;firstName".
+A default value (passed as the last parameter) will be returned if the attribute does
+not exist or is broken in the middle (e.g. $model-&gt;author is null).
+The model can be either an object or an array. If the latter, the attribute is treated
+as a key of the array. For the example of "author.firstName", if would mean the array value
+"$model['author']['firstName']".
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getIdByName">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getIdByName">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#857-860">getIdByName</a>( <span> string <span class="property-name">$name</span> </span> )</code>
+
+            <div class="description">
+                Generates a valid HTML ID based on name.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_listOptions">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_listOptions">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#893-953">listOptions</a>( <span> mixed <span class="property-name">$selection</span> </span>, <span> array <span class="property-name">$listData</span> </span>, <span> array <span class="property-name">&amp; $htmlOptions</span> </span> )</code>
+
+            <div class="description">
+                Generates the list options.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_listOptionsPopular">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_listOptionsPopular">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#955-1020">listOptionsPopular</a>( <span> <span class="property-name">$selection</span> </span>, <span> <span class="property-name">$listData</span> </span>, <span> <span class="property-name">&amp; $htmlOptions</span> </span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_addErrorCss">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 protected static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_addErrorCss">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#1026-1033">addErrorCss</a>( <span> array <span class="property-name">&amp; $htmlOptions</span> </span> )</code>
+
+            <div class="description">
+                Appends {@link errorCss} to the 'class' attribute.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_renderAttributes">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public static
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_renderAttributes">#</a>
+            <code><a href="source-class-Devgkz.Html.Html.html#1043-1092">renderAttributes</a>( <span> array <span class="property-name">$htmlOptions</span> </span> )</code>
+
+            <div class="description">
+                Renders the HTML tag attributes.
+
+Attributes whose value is null will not be rendered.
+Special attributes, such as 'checked', 'disabled', 'readonly', will be rendered
+properly based on their corresponding boolean value.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
+        </table>
+
+
+
+        <table class="summary table table-bordered table-responsive table-striped" id="constants">
+            <tr><th colspan="3">Constants Summary</th></tr>
+<tr id="ID_PREFIX">
+    <td class="attributes">
+        <code>string</code>
+    </td>
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#25-35" class="constant-name">ID_PREFIX</a>
+        </code>
+
+
+    </td>
+    <td class="value">
+        <div>
+            <a href="#ID_PREFIX" class="anchor pull-right">#</a>
+            <code>t</code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+
+        <table class="summary table table-bordered table-responsive table-striped" id="properties">
+            <tr><th colspan="3">Properties Summary</th></tr>
+<tr id="$errorSummaryCss">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$errorSummaryCss</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$errorSummaryCss" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'errorSummary'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$errorMessageCss">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$errorMessageCss</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$errorMessageCss" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'errorMessage'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$errorCss">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$errorCss</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$errorCss" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'error'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$requiredCss">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$requiredCss</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$requiredCss" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'required'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$beforeRequiredLabel">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$beforeRequiredLabel</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$beforeRequiredLabel" class="anchor pull-right">#</a>
+            <code><span class="php-quote">''</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$afterRequiredLabel">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            string
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$afterRequiredLabel</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$afterRequiredLabel" class="anchor pull-right">#</a>
+            <code><span class="php-quote">' &lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$count">
+    <td class="attributes">
+        <code class="keyword">
+            public static
+
+            int
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-Devgkz.Html.Html.html#5" class="property-name">$count</a>
+        </code>
+        <div class="description">
+            
+
+                <a href="https://github.com/devgkz/html">https://github.com/devgkz/html</a><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$count" class="anchor pull-right">#</a>
+            <code><span class="php-num">0</span></code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
+
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
+</html>
+
+

@@ -300,11 +300,10 @@ class Html
     }
 
   /**
-     * Âûâîä îøèáîê ôîðì
+     * Return composed fields errors.
      * @return string the generated html
-     * @author devg
      */
-  public static function formErrors($errors=array(), $header='<p><b>Äîïóùåííûå îøèáêè:</b></p>')
+  public static function formErrors($errors=array(), $header='<p><b>Please fix errors:</b></p>')
   {
       if (count($errors)) {
           /* $result = '<div class="errors">'.$header.'<ul>';
@@ -312,7 +311,7 @@ class Html
       $result .= '</ul></div>'; */
       $result = '<div class="'.self::$errorSummaryCss.'">'.$header.'';
           foreach ($errors as $err=>$msg) {
-              $result .= '<p class="">'.$msg."</p>\n";
+              $result .= '<p>'.$msg."</p>\n";
           }
           $result .= '</div>';
           return $result;
@@ -324,7 +323,6 @@ class Html
      * Generates a hyperlink tag.
      * @param string $text link body. It will NOT be HTML-encoded. Therefore you can pass in HTML code such as an image tag.
      * @param mixed $url a URL or an action route that can be used to create a URL.
-     * See {@link normalizeUrl} for more details about how to specify this parameter.
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated hyperlink
      */
