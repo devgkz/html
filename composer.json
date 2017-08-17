@@ -1,0 +1,22 @@
+{
+    "name": "devgkz/html",
+    "description": "Html and form helper based on Yii 1.x CHtml class.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Eugene Dementyev",
+            "email": "devg@ya.ru"
+        }
+    ],    
+    "minimum-stability": "dev",
+    "homepage": "https://github.com/devgkz/html",
+    "require": {
+        "php": "^7.0 || ^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Devgkz\\Html\\": "src/"
+        }
+    }
+}
