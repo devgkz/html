@@ -5,7 +5,7 @@ namespace Devgkz\Html;
 /**
  * Html helper class file.
  *
- * @link      https://github.com/devgkz/html-helper
+ * @link      https://github.com/devgkz/html
  * @copyright Copyright (c) 2017 Eugene Dementyev.
  * @license   https://opensource.org/licenses/BSD-3-Clause
 
@@ -33,17 +33,14 @@ class Html
     public static $errorCss='error';
     /**
      * @var string the CSS class for required labels. Defaults to 'required'.
-     * @see label
      */
     public static $requiredCss='required';
     /**
      * @var string the HTML code to be prepended to the required label.
-     * @see label
      */
     public static $beforeRequiredLabel='';
     /**
      * @var string the HTML code to be appended to the required label.
-     * @see label
      */
     public static $afterRequiredLabel=' <span class="required">*</span>';
     /**
@@ -56,7 +53,6 @@ class Html
      * The {@link CApplication::charset application charset} will be used for encoding.
      * @param string $text data to be encoded
      * @return string the encoded data
-     * @see http://www.php.net/manual/en/function.htmlspecialchars.php
      */
     public static function encode($text)
     {
@@ -69,8 +65,6 @@ class Html
      * This is the opposite of {@link encode()}.
      * @param string $text data to be decoded
      * @return string the decoded data
-     * @see http://www.php.net/manual/en/function.htmlspecialchars-decode.php
-     * @since 1.1.8
      */
     public static function decode($text)
     {
@@ -83,7 +77,6 @@ class Html
      * If a value is an array, this method will also encode it recursively.
      * @param array $data data to be encoded
      * @return array the encoded data
-     * @see http://www.php.net/manual/en/function.htmlspecialchars.php
      */
     public static function encodeArray($data)
     {
@@ -274,7 +267,6 @@ class Html
      * @param string $method form method (e.g. post, get)
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated form tag.
-     * @see endForm
      */
     public static function beginForm($action='', $method='post', $htmlOptions=array())
     {
@@ -301,7 +293,6 @@ class Html
     /**
      * Generates a closing form tag.
      * @return string the generated tag
-     * @see beginForm
      */
     public static function endForm()
     {
@@ -336,7 +327,6 @@ class Html
      * See {@link normalizeUrl} for more details about how to specify this parameter.
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated hyperlink
-     * @see normalizeUrl
      */
     public static function link($text, $url='#', $htmlOptions=array())
     {
@@ -405,7 +395,6 @@ class Html
      * without being HTML-encoded.
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
-
      */
     public static function htmlButton($label='button', $htmlOptions=array())
     {
@@ -511,7 +500,6 @@ class Html
      * @param string $value the input value
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
-     * @see inputField
      */
     public static function textField($name, $value='', $htmlOptions=array())
     {
@@ -524,7 +512,6 @@ class Html
      * @param string $value the input value
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
-     * @see inputField
      */
     public static function hiddenField($name, $value='', $htmlOptions=array())
     {
@@ -537,7 +524,6 @@ class Html
      * @param string $value the input value
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
-     * @see inputField
      */
     public static function passwordField($name, $value='', $htmlOptions=array())
     {
@@ -553,7 +539,6 @@ class Html
      * @param string $value the input value
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
-     * @see inputField
      */
     public static function fileField($name, $value='', $htmlOptions=array())
     {
@@ -566,7 +551,6 @@ class Html
      * @param string $value the input value
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated text area
-     * @see inputField
      */
     public static function textArea($name, $value='', $htmlOptions=array())
     {
@@ -589,7 +573,6 @@ class Html
      * when the radio button is not checked, we can still obtain the posted uncheck value.
      * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
      * @return string the generated radio button
-     * @see inputField
      */
     public static function radioButton($name, $checked=false, $htmlOptions=array())
     {
@@ -633,7 +616,6 @@ class Html
      * when the checkbox is not checked, we can still obtain the posted uncheck value.
      * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
      * @return string the generated check box
-     * @see inputField
      */
     public static function checkBox($name, $checked=false, $htmlOptions=array())
     {
@@ -695,8 +677,6 @@ class Html
      * </li>
      * </ul>
      * @return string the generated drop down list
-     * @see inputField
-     * @see listData
      */
     public static function dropDownList($name, $select, $data, $htmlOptions=array())
     {
@@ -751,8 +731,6 @@ class Html
      * </li>
      * </ul>
      * @return string the generated list box
-     * @see inputField
-     * @see listData
      */
     public static function listBox($name, $select, $data, $htmlOptions=array())
     {
