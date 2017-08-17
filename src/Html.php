@@ -80,7 +80,7 @@ class Html
      */
     public static function encodeArray($data)
     {
-        $d=array();
+        $d=[];
         foreach ($data as $key=>$value) {
             if (is_string($key)) {
                 $key=htmlspecialchars($key, ENT_QUOTES, 'UTF-8');
@@ -107,7 +107,7 @@ class Html
      * @param boolean $closeTag whether to generate the close tag.
      * @return string the generated HTML element tag
      */
-    public static function tag($tag, $htmlOptions=array(), $content=false, $closeTag=true)
+    public static function tag($tag, $htmlOptions=[], $content=false, $closeTag=true)
     {
         $html='<' . $tag . self::renderAttributes($htmlOptions);
         if ($content===false) {
@@ -126,7 +126,7 @@ class Html
      * Attributes whose value is null will not be rendered.
      * @return string the generated HTML element tag
      */
-    public static function openTag($tag, $htmlOptions=array())
+    public static function openTag($tag, $htmlOptions=[])
     {
         return '<' . $tag . self::renderAttributes($htmlOptions) . '>';
     }
@@ -159,7 +159,7 @@ class Html
      * @param array $options other options in name-value pairs (e.g. 'scheme', 'lang')
      * @return string the generated meta tag
      */
-    public static function metaTag($content, $name=null, $httpEquiv=null, $options=array())
+    public static function metaTag($content, $name=null, $httpEquiv=null, $options=[])
     {
         if ($name!==null) {
             $options['name']=$name;
@@ -181,7 +181,7 @@ class Html
      * @param array $options other options in name-value pairs
      * @return string the generated link tag
      */
-    public static function linkTag($relation=null, $type=null, $href=null, $media=null, $options=array())
+    public static function linkTag($relation=null, $type=null, $href=null, $media=null, $options=[])
     {
         if ($relation!==null) {
             $options['rel']=$relation;
@@ -254,7 +254,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated form tag.
      */
-    public static function form($action='', $method='post', $htmlOptions=array())
+    public static function form($action='', $method='post', $htmlOptions=[])
     {
         return self::beginForm($action, $method, $htmlOptions);
     }
@@ -268,24 +268,22 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated form tag.
      */
-    public static function beginForm($action='', $method='post', $htmlOptions=array())
+    public static function beginForm($action='', $method='post', $htmlOptions=[])
     {
         $htmlOptions['action']=$url=self::normalizeUrl($action);
         $htmlOptions['method']=$method;
         $form=self::tag('form', $htmlOptions, false, false);
-        $hiddens=array();
+        $hiddens=[];
         if (!strcasecmp($method, 'get') && ($pos=strpos($url, '?'))!==false) {
             foreach (explode('&', substr($url, $pos+1)) as $pair) {
                 if (($pos=strpos($pair, '='))!==false) {
-                    $hiddens[]=self::hiddenField(urldecode(substr($pair, 0, $pos)), urldecode(substr($pair, $pos+1)), array('id'=>false));
+                    $hiddens[]=self::hiddenField(urldecode(substr($pair, 0, $pos)), urldecode(substr($pair, $pos+1)), ['id'=>false]);
                 }
             }
         }
-        //$request=Yii::app()->request; //devg
-        //if($request->enableCsrfValidation && !strcasecmp($method,'post'))
-            //$hiddens[]=self::hiddenField($request->csrfTokenName,$request->getCsrfToken(),array('id'=>false)); //devg
-        if ($hiddens!==array()) {
-            $form.="\n".self::tag('div', array('style'=>'display:none'), implode("\n", $hiddens));
+
+        if ($hiddens!==[]) {
+            $form.="\n".self::tag('div', ['style'=>'display:none'], implode("\n", $hiddens));
         }
         return $form;
     }
@@ -303,7 +301,7 @@ class Html
      * Return composed fields errors.
      * @return string the generated html
      */
-  public static function formErrors($errors=array(), $header='<p><b>Please fix errors:</b></p>')
+  public static function formErrors($errors=[], $header='<p><b>Please fix errors:</b></p>')
   {
       if (count($errors)) {
           /* $result = '<div class="errors">'.$header.'<ul>';
@@ -326,7 +324,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated hyperlink
      */
-    public static function link($text, $url='#', $htmlOptions=array())
+    public static function link($text, $url='#', $htmlOptions=[])
     {
         if ($url!=='') {
             $htmlOptions['href']=self::normalizeUrl($url);
@@ -341,7 +339,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated mailto link
      */
-    public static function mailto($text, $email='', $htmlOptions=array())
+    public static function mailto($text, $email='', $htmlOptions=[])
     {
         if ($email==='') {
             $email=$text;
@@ -356,7 +354,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated image tag
      */
-    public static function image($src, $alt='', $htmlOptions=array())
+    public static function image($src, $alt='', $htmlOptions=[])
     {
         $htmlOptions['src']=$src;
         $htmlOptions['alt']=$alt;
@@ -369,7 +367,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function button($label='button', $htmlOptions=array())
+    public static function button($label='button', $htmlOptions=[])
     {
         if (!isset($htmlOptions['name'])) {
             if (!array_key_exists('name', $htmlOptions)) {
@@ -394,7 +392,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function htmlButton($label='button', $htmlOptions=array())
+    public static function htmlButton($label='button', $htmlOptions=[])
     {
         if (!isset($htmlOptions['name'])) {
             $htmlOptions['name']=self::ID_PREFIX.self::$count++;
@@ -411,7 +409,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function submitButton($label='submit', $htmlOptions=array())
+    public static function submitButton($label='submit', $htmlOptions=[])
     {
         $htmlOptions['type']='submit';
         return self::button($label, $htmlOptions);
@@ -423,7 +421,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function resetButton($label='reset', $htmlOptions=array())
+    public static function resetButton($label='reset', $htmlOptions=[])
     {
         $htmlOptions['type']='reset';
         return self::button($label, $htmlOptions);
@@ -435,7 +433,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function imageButton($src, $htmlOptions=array())
+    public static function imageButton($src, $htmlOptions=[])
     {
         $htmlOptions['src']=$src;
         $htmlOptions['type']='image';
@@ -448,7 +446,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function linkButton($label='submit', $htmlOptions=array())
+    public static function linkButton($label='submit', $htmlOptions=[])
     {
         if (!isset($htmlOptions['submit'])) {
             $htmlOptions['submit']=isset($htmlOptions['href']) ? $htmlOptions['href'] : '';
@@ -471,7 +469,7 @@ class Html
      * </ul>
      * @return string the generated label tag
      */
-    public static function label($label, $for, $htmlOptions=array())
+    public static function label($label, $for, $htmlOptions=[])
     {
         if ($for=='') {
             unset($htmlOptions['for']);
@@ -499,7 +497,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
      */
-    public static function textField($name, $value='', $htmlOptions=array())
+    public static function textField($name, $value='', $htmlOptions=[])
     {
         return self::inputField('text', $name, $value, $htmlOptions);
     }
@@ -511,7 +509,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
      */
-    public static function hiddenField($name, $value='', $htmlOptions=array())
+    public static function hiddenField($name, $value='', $htmlOptions=[])
     {
         return self::inputField('hidden', $name, $value, $htmlOptions);
     }
@@ -523,7 +521,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
      */
-    public static function passwordField($name, $value='', $htmlOptions=array())
+    public static function passwordField($name, $value='', $htmlOptions=[])
     {
         return self::inputField('password', $name, $value, $htmlOptions);
     }
@@ -538,7 +536,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
      */
-    public static function fileField($name, $value='', $htmlOptions=array())
+    public static function fileField($name, $value='', $htmlOptions=[])
     {
         return self::inputField('file', $name, $value, $htmlOptions);
     }
@@ -550,7 +548,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated text area
      */
-    public static function textArea($name, $value='', $htmlOptions=array())
+    public static function textArea($name, $value='', $htmlOptions=[])
     {
         $htmlOptions['name']=$name;
         if (!isset($htmlOptions['id'])) {
@@ -572,7 +570,7 @@ class Html
      * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
      * @return string the generated radio button
      */
-    public static function radioButton($name, $checked=false, $htmlOptions=array())
+    public static function radioButton($name, $checked=false, $htmlOptions=[])
     {
         if ($checked) {
             $htmlOptions['checked']='checked';
@@ -591,9 +589,9 @@ class Html
         if ($uncheck!==null) {
             // add a hidden field so that if the radio button is not selected, it still submits a value
             if (isset($htmlOptions['id']) && $htmlOptions['id']!==false) {
-                $uncheckOptions=array('id'=>self::ID_PREFIX.$htmlOptions['id']);
+                $uncheckOptions=['id'=>self::ID_PREFIX.$htmlOptions['id']];
             } else {
-                $uncheckOptions=array('id'=>false);
+                $uncheckOptions=['id'=>false];
             }
             $hidden=self::hiddenField($name, $uncheck, $uncheckOptions);
         } else {
@@ -615,7 +613,7 @@ class Html
      * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
      * @return string the generated check box
      */
-    public static function checkBox($name, $checked=false, $htmlOptions=array())
+    public static function checkBox($name, $checked=false, $htmlOptions=[])
     {
         if ($checked) {
             $htmlOptions['checked']='checked';
@@ -634,9 +632,9 @@ class Html
         if ($uncheck!==null) {
             // add a hidden field so that if the radio button is not selected, it still submits a value
             if (isset($htmlOptions['id']) && $htmlOptions['id']!==false) {
-                $uncheckOptions=array('id'=>self::ID_PREFIX.$htmlOptions['id']);
+                $uncheckOptions=['id'=>self::ID_PREFIX.$htmlOptions['id']];
             } else {
-                $uncheckOptions=array('id'=>false);
+                $uncheckOptions=['id'=>false];
             }
             $hidden=self::hiddenField($name, $uncheck, $uncheckOptions);
         } else {
@@ -667,16 +665,16 @@ class Html
      *     The array keys must be the option values, and the array values are the extra
      *     OPTION tag attributes in the name-value pairs. For example,
      * <pre>
-     *     array(
+     *     [
      *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
      *         'value2'=>array('label'=>'value 2'),
-     *     );
+     *     ];
      * </pre>
      * </li>
      * </ul>
      * @return string the generated drop down list
      */
-    public static function dropDownList($name, $select, $data, $htmlOptions=array())
+    public static function dropDownList($name, $select, $data, $htmlOptions=[])
     {
         $htmlOptions['name']=$name;
         if (!isset($htmlOptions['id'])) {
@@ -688,7 +686,7 @@ class Html
         return self::tag('select', $htmlOptions, $options);
     }
 
-    public static function dropDownListPopular($name, $select, $data, $htmlOptions=array())
+    public static function dropDownListPopular($name, $select, $data, $htmlOptions=[])
     {
         $htmlOptions['name']=$name;
         if (!isset($htmlOptions['id'])) {
@@ -721,16 +719,16 @@ class Html
      *     The array keys must be the option values, and the array values are the extra
      *     OPTION tag attributes in the name-value pairs. For example,
      * <pre>
-     *     array(
+     *     [
      *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
      *         'value2'=>array('label'=>'value 2'),
-     *     );
+     *     ];
      * </pre>
      * </li>
      * </ul>
      * @return string the generated list box
      */
-    public static function listBox($name, $select, $data, $htmlOptions=array())
+    public static function listBox($name, $select, $data, $htmlOptions=[])
     {
         if (!isset($htmlOptions['size'])) {
             $htmlOptions['size']=4;
@@ -803,7 +801,7 @@ class Html
      */
     public static function listData($models, $valueField, $textField, $groupField='')
     {
-        $listData=array();
+        $listData=[];
         if ($groupField==='') {
             foreach ($models as $model) {
                 $value=self::value($model, $valueField);
@@ -856,7 +854,7 @@ class Html
      */
     public static function getIdByName($name)
     {
-        return self::ID_PREFIX.str_replace(array('[]', '][', '[', ']'), array('', '_', '_', ''), $name);
+        return self::ID_PREFIX.str_replace(['[]', '][', '[', ']'], ['', '_', '_', ''], $name);
     }
 
     
@@ -876,10 +874,10 @@ class Html
      *     The array keys must be the option values, and the array values are the extra
      *     OPTION tag attributes in the name-value pairs. For example,
      * <pre>
-     *     array(
+     *     [
      *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
      *         'value2'=>array('label'=>'value 2'),
-     *     );
+     *     ];
      * </pre>
      * </li>
      * <li>key: string, specifies the name of key attribute of the selection object(s).
@@ -895,15 +893,15 @@ class Html
         $raw=isset($htmlOptions['encode']) && !$htmlOptions['encode'];
         $content='';
         if (isset($htmlOptions['prompt'])) {
-            $content.='<option value="">'.strtr($htmlOptions['prompt'], array('<'=>'&lt;', '>'=>'&gt;'))."</option>\n";
+            $content.='<option value="">'.strtr($htmlOptions['prompt'], ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
             unset($htmlOptions['prompt']);
         }
         if (isset($htmlOptions['empty'])) {
             if (!is_array($htmlOptions['empty'])) {
-                $htmlOptions['empty']=array(''=>$htmlOptions['empty']);
+                $htmlOptions['empty']=[''=>$htmlOptions['empty']];
             }
             foreach ($htmlOptions['empty'] as $value=>$label) {
-                $content.='<option value="'.self::encode($value).'">'.strtr($label, array('<'=>'&lt;', '>'=>'&gt;'))."</option>\n";
+                $content.='<option value="'.self::encode($value).'">'.strtr($label, ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
             }
             unset($htmlOptions['empty']);
         }
@@ -912,7 +910,7 @@ class Html
             $options=$htmlOptions['options'];
             unset($htmlOptions['options']);
         } else {
-            $options=array();
+            $options=[];
         }
 
         $key=isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
@@ -929,14 +927,14 @@ class Html
         foreach ($listData as $key=>$value) {
             if (is_array($value)) {
                 $content.='<optgroup label="'.($raw?$key : self::encode($key))."\">\n";
-                $dummy=array('options'=>$options);
+                $dummy=['options'=>$options];
                 if (isset($htmlOptions['encode'])) {
                     $dummy['encode']=$htmlOptions['encode'];
                 }
                 $content.=self::listOptions($selection, $value, $dummy);
                 $content.='</optgroup>'."\n";
             } else {
-                $attributes=array('value'=>(string)$key, 'encode'=>!$raw);
+                $attributes=['value'=>(string)$key, 'encode'=>!$raw];
                 if (!is_array($selection) && !strcmp($key, $selection) || is_array($selection) && in_array($key, $selection)) {
                     $attributes['selected']='selected';
                 }
@@ -957,15 +955,15 @@ class Html
         $raw=isset($htmlOptions['encode']) && !$htmlOptions['encode'];
         $content='';
         if (isset($htmlOptions['prompt'])) {
-            $content.='<option value="">'.strtr($htmlOptions['prompt'], array('<'=>'&lt;', '>'=>'&gt;'))."</option>\n";
+            $content.='<option value="">'.strtr($htmlOptions['prompt'], ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
             unset($htmlOptions['prompt']);
         }
         if (isset($htmlOptions['empty'])) {
             if (!is_array($htmlOptions['empty'])) {
-                $htmlOptions['empty']=array(''=>$htmlOptions['empty']);
+                $htmlOptions['empty']=[''=>$htmlOptions['empty']];
             }
             foreach ($htmlOptions['empty'] as $value=>$label) {
-                $content.='<option value="'.self::encode($value).'">'.strtr($label, array('<'=>'&lt;', '>'=>'&gt;'))."</option>\n";
+                $content.='<option value="'.self::encode($value).'">'.strtr($label, ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
             }
             unset($htmlOptions['empty']);
         }
@@ -974,7 +972,7 @@ class Html
             $options=$htmlOptions['options'];
             unset($htmlOptions['options']);
         } else {
-            $options=array();
+            $options=[];
         }
 
         $key=isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
@@ -1042,7 +1040,7 @@ class Html
      */
     public static function renderAttributes($htmlOptions)
     {
-        static $specialAttributes=array(
+        static $specialAttributes=[
             'checked'=>1,
             'declare'=>1,
             'defer'=>1,
@@ -1053,9 +1051,9 @@ class Html
             'noresize'=>1,
             'readonly'=>1,
             'selected'=>1,
-        );
+        ];
 
-        if ($htmlOptions===array()) {
+        if ($htmlOptions===[]) {
             return '';
         }
 
