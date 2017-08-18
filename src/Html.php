@@ -604,13 +604,14 @@ class Html
 
     /**
      * Generates a check box.
-     * @param string $name the input name
-     * @param boolean $checked whether the check box is checked
-     * @param array $htmlOptions additional HTML attributes.
-     * Since version 1.1.2, a special option named 'uncheckValue' is available that can be used to specify
+     * Special option named 'uncheckValue' is available that can be used to specify
      * the value returned when the checkbox is not checked. When set, a hidden field is rendered so that
      * when the checkbox is not checked, we can still obtain the posted uncheck value.
      * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
+     *
+     * @param string $name the input name
+     * @param boolean $checked whether the check box is checked
+     * @param array $htmlOptions additional HTML attributes.
      * @return string the generated check box
      */
     public static function checkBox($name, $checked=false, $htmlOptions=[])

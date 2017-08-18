@@ -989,7 +989,10 @@ Generates a check box.
 Html::checkBox( string $name, boolean $checked = false, array $htmlOptions = array() ): string
 ```
 
-
+Special option named 'uncheckValue' is available that can be used to specify
+the value returned when the checkbox is not checked. When set, a hidden field is rendered so that
+when the checkbox is not checked, we can still obtain the posted uncheck value.
+If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
 
 * This method is **static**.
 **Parameters:**
@@ -998,11 +1001,7 @@ Html::checkBox( string $name, boolean $checked = false, array $htmlOptions = arr
 |-----------|------|-------------|
 | `$name` | **string** | the input name |
 | `$checked` | **boolean** | whether the check box is checked |
-| `$htmlOptions` | **array** | additional HTML attributes.
-Since version 1.1.2, a special option named 'uncheckValue' is available that can be used to specify
-the value returned when the checkbox is not checked. When set, a hidden field is rendered so that
-when the checkbox is not checked, we can still obtain the posted uncheck value.
-If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered. |
+| `$htmlOptions` | **array** | additional HTML attributes. |
 
 
 **Return Value:**
