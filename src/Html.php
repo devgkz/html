@@ -14,49 +14,53 @@ namespace Devgkz\Html;
  * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
-
 class Html
 {
-    const ID_PREFIX='t';
+    const ID_PREFIX = 't';
+
     /**
      * @var string the CSS class for displaying error summaries (see {@link errorSummary}).
      */
-    public static $errorSummaryCss='errorSummary';
+    public static $errorSummaryCss = 'errorSummary';
+
     /**
      * @var string the CSS class for displaying error messages (see {@link error}).
      */
-    public static $errorMessageCss='errorMessage';
+    public static $errorMessageCss = 'errorMessage';
+
     /**
      * @var string the CSS class for highlighting error inputs. Form inputs will be appended
      * with this CSS class if they have input errors.
      */
-    public static $errorCss='error';
+    public static $errorCss = 'error';
+
     /**
      * @var string the CSS class for required labels. Defaults to 'required'.
      */
-    public static $requiredCss='required';
+    public static $requiredCss = 'required';
+
     /**
      * @var string the HTML code to be prepended to the required label.
      */
-    public static $beforeRequiredLabel='';
+    public static $beforeRequiredLabel = '';
+
     /**
      * @var string the HTML code to be appended to the required label.
      */
-    public static $afterRequiredLabel=' <span class="required">*</span>';
+    public static $afterRequiredLabel = ' <span class="required">*</span>';
+
     /**
      * @var integer the counter for generating automatic input field names.
      */
-    public static $count=0;
+    public static $count = 0;
 
     /**
      * Encodes special characters into HTML entities.
-     * The {@link CApplication::charset application charset} will be used for encoding.
      * @param string $text data to be encoded
      * @return string the encoded data
      */
     public static function encode($text)
     {
-        //return htmlspecialchars($text,ENT_QUOTES,App::_()->charset);
         return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
     }
 
@@ -80,17 +84,17 @@ class Html
      */
     public static function encodeArray($data)
     {
-        $d=[];
-        foreach ($data as $key=>$value) {
+        $d = [];
+        foreach ($data as $key => $value) {
             if (is_string($key)) {
-                $key=htmlspecialchars($key, ENT_QUOTES, 'UTF-8');
+                $key = htmlspecialchars($key, ENT_QUOTES, 'UTF-8');
             }
             if (is_string($value)) {
-                $value=htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+                $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
             } elseif (is_array($value)) {
-                $value=self::encodeArray($value);
+                $value = self::encodeArray($value);
             }
-            $d[$key]=$value;
+            $d[$key] = $value;
         }
         return $d;
     }
@@ -102,31 +106,26 @@ class Html
      * If an 'encode' attribute is given and its value is false,
      * the rest of the attribute values will NOT be HTML-encoded.
      * Attributes whose value is null will not be rendered.
-     * @param mixed $content the content to be enclosed between open and close element tags. It will not be HTML-encoded.
-     * If false, it means there is no body content.
+     * @param mixed $content the content to be enclosed between open and close element tags. It will not be HTML-encoded. If false, it means there is no body content.
      * @param boolean $closeTag whether to generate the close tag.
      * @return string the generated HTML element tag
      */
-    public static function tag($tag, $htmlOptions=[], $content=false, $closeTag=true)
+    public static function tag($tag, $htmlOptions = [], $content = false, $closeTag = true)
     {
-        $html='<' . $tag . self::renderAttributes($htmlOptions);
-        if ($content===false) {
-            return $closeTag ? $html.' />' : $html.'>';
+        $html = '<' . $tag . self::renderAttributes($htmlOptions);
+        if ($content === false) {
+            return $closeTag ? $html . ' />' : $html . '>';
         } else {
-            return $closeTag ? $html.'>'.$content.'</'.$tag.'>' : $html.'>'.$content;
+            return $closeTag ? $html . '>' . $content . '</' . $tag . '>' : $html . '>' . $content;
         }
     }
 
     /**
      * Generates an open HTML element.
      * @param string $tag the tag name
-     * @param array $htmlOptions the element attributes. The values will be HTML-encoded using {@link encode()}.
-     * If an 'encode' attribute is given and its value is false,
-     * the rest of the attribute values will NOT be HTML-encoded.
-     * Attributes whose value is null will not be rendered.
      * @return string the generated HTML element tag
      */
-    public static function openTag($tag, $htmlOptions=[])
+    public static function openTag($tag, $htmlOptions = [])
     {
         return '<' . $tag . self::renderAttributes($htmlOptions) . '>';
     }
@@ -138,7 +137,7 @@ class Html
      */
     public static function closeTag($tag)
     {
-        return '</'.$tag.'>';
+        return '</' . $tag . '>';
     }
 
     /**
@@ -159,15 +158,15 @@ class Html
      * @param array $options other options in name-value pairs (e.g. 'scheme', 'lang')
      * @return string the generated meta tag
      */
-    public static function metaTag($content, $name=null, $httpEquiv=null, $options=[])
+    public static function metaTag($content, $name = null, $httpEquiv = null, $options = [])
     {
-        if ($name!==null) {
-            $options['name']=$name;
+        if ($name !== null) {
+            $options['name'] = $name;
         }
-        if ($httpEquiv!==null) {
-            $options['http-equiv']=$httpEquiv;
+        if ($httpEquiv !== null) {
+            $options['http-equiv'] = $httpEquiv;
         }
-        $options['content']=$content;
+        $options['content'] = $content;
         return self::tag('meta', $options);
     }
 
@@ -181,19 +180,19 @@ class Html
      * @param array $options other options in name-value pairs
      * @return string the generated link tag
      */
-    public static function linkTag($relation=null, $type=null, $href=null, $media=null, $options=[])
+    public static function linkTag($relation = null, $type = null, $href = null, $media = null, $options = [])
     {
-        if ($relation!==null) {
-            $options['rel']=$relation;
+        if ($relation !== null) {
+            $options['rel'] = $relation;
         }
-        if ($type!==null) {
-            $options['type']=$type;
+        if ($type !== null) {
+            $options['type'] = $type;
         }
-        if ($href!==null) {
-            $options['href']=$href;
+        if ($href !== null) {
+            $options['href'] = $href;
         }
-        if ($media!==null) {
-            $options['media']=$media;
+        if ($media !== null) {
+            $options['media'] = $media;
         }
         return self::tag('link', $options);
     }
@@ -204,10 +203,10 @@ class Html
      * @param string $media the media that this CSS should apply to.
      * @return string the CSS properly enclosed
      */
-    public static function css($text, $media='')
+    public static function css($text, $media = '')
     {
-        if ($media!=='') {
-            $media=' media="'.$media.'"';
+        if ($media !== '') {
+            $media = ' media="' . $media . '"';
         }
         return "<style type=\"text/css\"{$media}>\n/*<![CDATA[*/\n{$text}\n/*]]>*/\n</style>";
     }
@@ -218,12 +217,12 @@ class Html
      * @param string $media the media that this CSS should apply to.
      * @return string the CSS link.
      */
-    public static function cssFile($url, $media='')
+    public static function cssFile($url, $media = '')
     {
-        if ($media!=='') {
-            $media=' media="'.$media.'"';
+        if ($media !== '') {
+            $media = ' media="' . $media . '"';
         }
-        return '<link rel="stylesheet" type="text/css" href="'.self::encode($url).'"'.$media.' />';
+        return '<link rel="stylesheet" type="text/css" href="' . self::encode($url) . '"' . $media . ' />';
     }
 
     /**
@@ -243,7 +242,7 @@ class Html
      */
     public static function scriptFile($url)
     {
-        return '<script type="text/javascript" src="'.self::encode($url).'"></script>';
+        return '<script type="text/javascript" src="' . self::encode($url) . '"></script>';
     }
 
     /**
@@ -254,7 +253,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated form tag.
      */
-    public static function form($action='', $method='post', $htmlOptions=[])
+    public static function form($action = '', $method = 'post', $htmlOptions = [])
     {
         return self::beginForm($action, $method, $htmlOptions);
     }
@@ -268,22 +267,22 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated form tag.
      */
-    public static function beginForm($action='', $method='post', $htmlOptions=[])
+    public static function beginForm($action = '', $method = 'post', $htmlOptions = [])
     {
-        $htmlOptions['action']=$url=self::normalizeUrl($action);
-        $htmlOptions['method']=$method;
-        $form=self::tag('form', $htmlOptions, false, false);
-        $hiddens=[];
-        if (!strcasecmp($method, 'get') && ($pos=strpos($url, '?'))!==false) {
-            foreach (explode('&', substr($url, $pos+1)) as $pair) {
-                if (($pos=strpos($pair, '='))!==false) {
-                    $hiddens[]=self::hiddenField(urldecode(substr($pair, 0, $pos)), urldecode(substr($pair, $pos+1)), ['id'=>false]);
+        $htmlOptions['action'] = $url = self::normalizeUrl($action);
+        $htmlOptions['method'] = $method;
+        $form = self::tag('form', $htmlOptions, false, false);
+        $hiddens = [];
+        if (!strcasecmp($method, 'get') && ($pos = strpos($url, '?')) !== false) {
+            foreach (explode('&', substr($url, $pos + 1)) as $pair) {
+                if (($pos = strpos($pair, '=')) !== false) {
+                    $hiddens[] = self::hiddenField(urldecode(substr($pair, 0, $pos)), urldecode(substr($pair, $pos + 1)), ['id' => false]);
                 }
             }
         }
 
-        if ($hiddens!==[]) {
-            $form.="\n".self::tag('div', ['style'=>'display:none'], implode("\n", $hiddens));
+        if ($hiddens !== []) {
+            $form .= "\n" . self::tag('div', ['style' => 'display:none'], implode("\n", $hiddens));
         }
         return $form;
     }
@@ -297,25 +296,21 @@ class Html
         return '</form>';
     }
 
-  /**
+    /**
      * Return composed fields errors.
      * @return string the generated html
      */
-  public static function formErrors($errors=[], $header='<p><b>Please fix errors:</b></p>')
-  {
-      if (count($errors)) {
-          /* $result = '<div class="errors">'.$header.'<ul>';
-      foreach ($errors as $err=>$msg) $result .= '<li>'.$msg."</li>\n";
-      $result .= '</ul></div>'; */
-      $result = '<div class="'.self::$errorSummaryCss.'">'.$header.'';
-          foreach ($errors as $err=>$msg) {
-              $result .= '<p>'.$msg."</p>\n";
-          }
-          $result .= '</div>';
-          return $result;
-      }
-  }
-
+    public static function formErrors($errors = [], $header = '<p><b>Please fix errors:</b></p>')
+    {
+        if (count($errors)) {
+            $result = '<div class="' . self::$errorSummaryCss . '">' . $header . '';
+            foreach ($errors as $err => $msg) {
+                $result .= '<p>' . $msg . "</p>\n";
+            }
+            $result .= '</div>';
+            return $result;
+        }
+    }
 
     /**
      * Generates a hyperlink tag.
@@ -324,10 +319,10 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated hyperlink
      */
-    public static function link($text, $url='#', $htmlOptions=[])
+    public static function link($text, $url = '#', $htmlOptions = [])
     {
-        if ($url!=='') {
-            $htmlOptions['href']=self::normalizeUrl($url);
+        if ($url !== '') {
+            $htmlOptions['href'] = self::normalizeUrl($url);
         }
         return self::tag('a', $htmlOptions, $text);
     }
@@ -339,12 +334,12 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated mailto link
      */
-    public static function mailto($text, $email='', $htmlOptions=[])
+    public static function mailto($text, $email = '', $htmlOptions = [])
     {
-        if ($email==='') {
-            $email=$text;
+        if ($email === '') {
+            $email = $text;
         }
-        return self::link($text, 'mailto:'.$email, $htmlOptions);
+        return self::link($text, 'mailto:' . $email, $htmlOptions);
     }
 
     /**
@@ -354,10 +349,10 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated image tag
      */
-    public static function image($src, $alt='', $htmlOptions=[])
+    public static function image($src, $alt = '', $htmlOptions = [])
     {
-        $htmlOptions['src']=$src;
-        $htmlOptions['alt']=$alt;
+        $htmlOptions['src'] = $src;
+        $htmlOptions['alt'] = $alt;
         return self::tag('img', $htmlOptions);
     }
 
@@ -367,18 +362,18 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function button($label='button', $htmlOptions=[])
+    public static function button($label = 'button', $htmlOptions = [])
     {
         if (!isset($htmlOptions['name'])) {
             if (!array_key_exists('name', $htmlOptions)) {
-                $htmlOptions['name']=self::ID_PREFIX.self::$count++;
+                $htmlOptions['name'] = self::ID_PREFIX . self::$count++;
             }
         }
         if (!isset($htmlOptions['type'])) {
-            $htmlOptions['type']='button';
+            $htmlOptions['type'] = 'button';
         }
         if (!isset($htmlOptions['value'])) {
-            $htmlOptions['value']=$label;
+            $htmlOptions['value'] = $label;
         }
         return self::tag('input', $htmlOptions);
     }
@@ -387,18 +382,17 @@ class Html
      * Generates a button using HTML button tag.
      * This method is similar to {@link button} except that it generates a 'button'
      * tag instead of 'input' tag.
-     * @param string $label the button label. Note that this value will be directly inserted in the button element
-     * without being HTML-encoded.
+     * @param string $label the button label. Note that this value will be directly inserted in the button element without being HTML-encoded.
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function htmlButton($label='button', $htmlOptions=[])
+    public static function htmlButton($label = 'button', $htmlOptions = [])
     {
         if (!isset($htmlOptions['name'])) {
-            $htmlOptions['name']=self::ID_PREFIX.self::$count++;
+            $htmlOptions['name'] = self::ID_PREFIX . self::$count++;
         }
         if (!isset($htmlOptions['type'])) {
-            $htmlOptions['type']='button';
+            $htmlOptions['type'] = 'button';
         }
         return self::tag('button', $htmlOptions, $label);
     }
@@ -409,9 +403,9 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function submitButton($label='submit', $htmlOptions=[])
+    public static function submitButton($label = 'submit', $htmlOptions = [])
     {
-        $htmlOptions['type']='submit';
+        $htmlOptions['type'] = 'submit';
         return self::button($label, $htmlOptions);
     }
 
@@ -421,9 +415,9 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function resetButton($label='reset', $htmlOptions=[])
+    public static function resetButton($label = 'reset', $htmlOptions = [])
     {
-        $htmlOptions['type']='reset';
+        $htmlOptions['type'] = 'reset';
         return self::button($label, $htmlOptions);
     }
 
@@ -433,10 +427,10 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function imageButton($src, $htmlOptions=[])
+    public static function imageButton($src, $htmlOptions = [])
     {
-        $htmlOptions['src']=$src;
-        $htmlOptions['type']='image';
+        $htmlOptions['src'] = $src;
+        $htmlOptions['type'] = 'image';
         return self::button('submit', $htmlOptions);
     }
 
@@ -446,10 +440,10 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated button tag
      */
-    public static function linkButton($label='submit', $htmlOptions=[])
+    public static function linkButton($label = 'submit', $htmlOptions = [])
     {
         if (!isset($htmlOptions['submit'])) {
-            $htmlOptions['submit']=isset($htmlOptions['href']) ? $htmlOptions['href'] : '';
+            $htmlOptions['submit'] = isset($htmlOptions['href']) ? $htmlOptions['href'] : '';
         }
         return self::link($label, '#', $htmlOptions);
     }
@@ -460,30 +454,23 @@ class Html
      * @param string $for the ID of the HTML element that this label is associated with.
      * If this is false, the 'for' attribute for the label tag will not be rendered.
      * @param array $htmlOptions additional HTML attributes.
-     * The following HTML option is recognized:
-     * <ul>
-     * <li>required: if this is set and is true, the label will be styled
-     * with CSS class 'required' (customizable with CHtml::$requiredCss),
-     * and be decorated with {@link CHtml::beforeRequiredLabel} and
-     * {@link CHtml::afterRequiredLabel}.</li>
-     * </ul>
      * @return string the generated label tag
      */
-    public static function label($label, $for, $htmlOptions=[])
+    public static function label($label, $for, $htmlOptions = [])
     {
-        if ($for=='') {
+        if ($for == '') {
             unset($htmlOptions['for']);
         } else {
-            $htmlOptions['for']=$for;
+            $htmlOptions['for'] = $for;
         }
         if (isset($htmlOptions['required'])) {
             if ($htmlOptions['required']) {
                 if (isset($htmlOptions['class'])) {
-                    $htmlOptions['class'].=' '.self::$requiredCss;
+                    $htmlOptions['class'] .= ' ' . self::$requiredCss;
                 } else {
-                    $htmlOptions['class']=self::$requiredCss;
+                    $htmlOptions['class'] = self::$requiredCss;
                 }
-                $label=self::$beforeRequiredLabel.$label.self::$afterRequiredLabel;
+                $label = self::$beforeRequiredLabel . $label . self::$afterRequiredLabel;
             }
             unset($htmlOptions['required']);
         }
@@ -497,7 +484,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
      */
-    public static function textField($name, $value='', $htmlOptions=[])
+    public static function textField($name, $value = '', $htmlOptions = [])
     {
         return self::inputField('text', $name, $value, $htmlOptions);
     }
@@ -509,7 +496,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
      */
-    public static function hiddenField($name, $value='', $htmlOptions=[])
+    public static function hiddenField($name, $value = '', $htmlOptions = [])
     {
         return self::inputField('hidden', $name, $value, $htmlOptions);
     }
@@ -521,7 +508,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated input field
      */
-    public static function passwordField($name, $value='', $htmlOptions=[])
+    public static function passwordField($name, $value = '', $htmlOptions = [])
     {
         return self::inputField('password', $name, $value, $htmlOptions);
     }
@@ -536,7 +523,7 @@ class Html
      * @param array $htmlOptions additional HTML attributes (see {@link tag}).
      * @return string the generated input field
      */
-    public static function fileField($name, $value='', $htmlOptions=[])
+    public static function fileField($name, $value = '', $htmlOptions = [])
     {
         return self::inputField('file', $name, $value, $htmlOptions);
     }
@@ -548,12 +535,12 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated text area
      */
-    public static function textArea($name, $value='', $htmlOptions=[])
+    public static function textArea($name, $value = '', $htmlOptions = [])
     {
-        $htmlOptions['name']=$name;
+        $htmlOptions['name'] = $name;
         if (!isset($htmlOptions['id'])) {
-            $htmlOptions['id']=self::getIdByName($name);
-        } elseif ($htmlOptions['id']===false) {
+            $htmlOptions['id'] = self::getIdByName($name);
+        } elseif ($htmlOptions['id'] === false) {
             unset($htmlOptions['id']);
         }
         return self::tag('textarea', $htmlOptions, isset($htmlOptions['encode']) && !$htmlOptions['encode'] ? $value : self::encode($value));
@@ -564,38 +551,34 @@ class Html
      * @param string $name the input name
      * @param boolean $checked whether the radio button is checked
      * @param array $htmlOptions additional HTML attributes.
-     * Since version 1.1.2, a special option named 'uncheckValue' is available that can be used to specify
-     * the value returned when the radio button is not checked. When set, a hidden field is rendered so that
-     * when the radio button is not checked, we can still obtain the posted uncheck value.
-     * If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered.
      * @return string the generated radio button
      */
-    public static function radioButton($name, $checked=false, $htmlOptions=[])
+    public static function radioButton($name, $checked = false, $htmlOptions = [])
     {
         if ($checked) {
-            $htmlOptions['checked']='checked';
+            $htmlOptions['checked'] = 'checked';
         } else {
             unset($htmlOptions['checked']);
         }
-        $value=isset($htmlOptions['value']) ? $htmlOptions['value'] : 1;
-        
+        $value = isset($htmlOptions['value']) ? $htmlOptions['value'] : 1;
+
         if (array_key_exists('uncheckValue', $htmlOptions)) {
-            $uncheck=$htmlOptions['uncheckValue'];
+            $uncheck = $htmlOptions['uncheckValue'];
             unset($htmlOptions['uncheckValue']);
         } else {
-            $uncheck=null;
+            $uncheck = null;
         }
 
-        if ($uncheck!==null) {
+        if ($uncheck !== null) {
             // add a hidden field so that if the radio button is not selected, it still submits a value
-            if (isset($htmlOptions['id']) && $htmlOptions['id']!==false) {
-                $uncheckOptions=['id'=>self::ID_PREFIX.$htmlOptions['id']];
+            if (isset($htmlOptions['id']) && $htmlOptions['id'] !== false) {
+                $uncheckOptions = ['id' => self::ID_PREFIX . $htmlOptions['id']];
             } else {
-                $uncheckOptions=['id'=>false];
+                $uncheckOptions = ['id' => false];
             }
-            $hidden=self::hiddenField($name, $uncheck, $uncheckOptions);
+            $hidden = self::hiddenField($name, $uncheck, $uncheckOptions);
         } else {
-            $hidden='';
+            $hidden = '';
         }
 
         // add a hidden field so that if the radio button is not selected, it still submits a value
@@ -614,32 +597,32 @@ class Html
      * @param array $htmlOptions additional HTML attributes.
      * @return string the generated check box
      */
-    public static function checkBox($name, $checked=false, $htmlOptions=[])
+    public static function checkBox($name, $checked = false, $htmlOptions = [])
     {
         if ($checked) {
-            $htmlOptions['checked']='checked';
+            $htmlOptions['checked'] = 'checked';
         } else {
             unset($htmlOptions['checked']);
         }
-        $value=isset($htmlOptions['value']) ? $htmlOptions['value'] : 1;
-        
+        $value = isset($htmlOptions['value']) ? $htmlOptions['value'] : 1;
+
         if (array_key_exists('uncheckValue', $htmlOptions)) {
-            $uncheck=$htmlOptions['uncheckValue'];
+            $uncheck = $htmlOptions['uncheckValue'];
             unset($htmlOptions['uncheckValue']);
         } else {
-            $uncheck=null;
+            $uncheck = null;
         }
 
-        if ($uncheck!==null) {
+        if ($uncheck !== null) {
             // add a hidden field so that if the radio button is not selected, it still submits a value
-            if (isset($htmlOptions['id']) && $htmlOptions['id']!==false) {
-                $uncheckOptions=['id'=>self::ID_PREFIX.$htmlOptions['id']];
+            if (isset($htmlOptions['id']) && $htmlOptions['id'] !== false) {
+                $uncheckOptions = ['id' => self::ID_PREFIX . $htmlOptions['id']];
             } else {
-                $uncheckOptions=['id'=>false];
+                $uncheckOptions = ['id' => false];
             }
-            $hidden=self::hiddenField($name, $uncheck, $uncheckOptions);
+            $hidden = self::hiddenField($name, $uncheck, $uncheckOptions);
         } else {
-            $hidden='';
+            $hidden = '';
         }
 
         // add a hidden field so that if the checkbox  is not selected, it still submits a value
@@ -648,13 +631,9 @@ class Html
 
     /**
      * Generates a drop down list.
-     * @param string $name the input name
-     * @param string $select the selected value
-     * @param array $data data for generating the list options (value=>display).
      * You may use {@link listData} to generate this data.
      * Please refer to {@link listOptions} on how this data is used to generate the list options.
      * Note, the values and labels will be automatically HTML-encoded by this method.
-     * @param array $htmlOptions additional HTML attributes.
      * In addition, the following options are also supported specifically for dropdown list:
      * <ul>
      * <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
@@ -672,43 +651,44 @@ class Html
      *     ];
      * </pre>
      * </li>
-     * </ul>
+     * </ul>     
+     *
+     * @param string $name the input name
+     * @param string $select the selected value
+     * @param array $data data for generating the list options (value=>display).
+     * @param array $htmlOptions additional HTML attributes.
      * @return string the generated drop down list
      */
-    public static function dropDownList($name, $select, $data, $htmlOptions=[])
+    public static function dropDownList($name, $select, $data, $htmlOptions = [])
     {
-        $htmlOptions['name']=$name;
+        $htmlOptions['name'] = $name;
         if (!isset($htmlOptions['id'])) {
-            $htmlOptions['id']=self::getIdByName($name);
-        } elseif ($htmlOptions['id']===false) {
+            $htmlOptions['id'] = self::getIdByName($name);
+        } elseif ($htmlOptions['id'] === false) {
             unset($htmlOptions['id']);
         }
-        $options="\n".self::listOptions($select, $data, $htmlOptions);
+        $options = "\n" . self::listOptions($select, $data, $htmlOptions);
         return self::tag('select', $htmlOptions, $options);
     }
 
-    public static function dropDownListPopular($name, $select, $data, $htmlOptions=[])
+    public static function dropDownListPopular($name, $select, $data, $htmlOptions = [])
     {
-        $htmlOptions['name']=$name;
+        $htmlOptions['name'] = $name;
         if (!isset($htmlOptions['id'])) {
-            $htmlOptions['id']=self::getIdByName($name);
-        } elseif ($htmlOptions['id']===false) {
+            $htmlOptions['id'] = self::getIdByName($name);
+        } elseif ($htmlOptions['id'] === false) {
             unset($htmlOptions['id']);
         }
 
-        $options="\n".self::listOptionsPopular($select, $data, $htmlOptions);
+        $options = "\n" . self::listOptionsPopular($select, $data, $htmlOptions);
         return self::tag('select', $htmlOptions, $options);
     }
 
     /**
      * Generates a list box.
-     * @param string $name the input name
-     * @param mixed $select the selected value(s). This can be either a string for single selection or an array for multiple selections.
-     * @param array $data data for generating the list options (value=>display)
      * You may use {@link listData} to generate this data.
      * Please refer to {@link listOptions} on how this data is used to generate the list options.
      * Note, the values and labels will be automatically HTML-encoded by this method.
-     * @param array $htmlOptions additional HTML attributes.
      * In addition, the following options are also supported specifically for list box:
      * <ul>
      * <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
@@ -727,16 +707,21 @@ class Html
      * </pre>
      * </li>
      * </ul>
+     *
+     * @param string $name the input name
+     * @param mixed $select the selected value(s). This can be either a string for single selection or an array for multiple selections.
+     * @param array $data data for generating the list options (value=>display)
+     * @param array $htmlOptions additional HTML attributes.
      * @return string the generated list box
      */
-    public static function listBox($name, $select, $data, $htmlOptions=[])
+    public static function listBox($name, $select, $data, $htmlOptions = [])
     {
         if (!isset($htmlOptions['size'])) {
-            $htmlOptions['size']=4;
+            $htmlOptions['size'] = 4;
         }
         if (isset($htmlOptions['multiple'])) {
-            if (substr($name, -2)!=='[]') {
-                $name.='[]';
+            if (substr($name, -2) !== '[]') {
+                $name .= '[]';
             }
         }
         return self::dropDownList($name, $select, $data, $htmlOptions);
@@ -746,7 +731,6 @@ class Html
      * Normalizes the input parameter to be a valid URL.
      *
      * If the input parameter is an empty string, the currently requested URL will be returned.
-     *
      * If the input parameter is a non-empty string, it is treated as a valid URL and will
      * be returned without any change.
      *
@@ -760,8 +744,8 @@ class Html
         if (false !== $pos = strpos($uri, '?')) {
             $uri = substr($uri, 0, $pos);
         }
-        
-        return $url==='' ? $uri : $url;
+
+        return $url === '' ? $uri : $url;
     }
 
     /**
@@ -775,12 +759,12 @@ class Html
      */
     protected static function inputField($type, $name, $value, $htmlOptions)
     {
-        $htmlOptions['type']=$type;
-        $htmlOptions['value']=$value;
-        $htmlOptions['name']=$name;
+        $htmlOptions['type'] = $type;
+        $htmlOptions['value'] = $value;
+        $htmlOptions['name'] = $name;
         if (!isset($htmlOptions['id'])) {
-            $htmlOptions['id']=self::getIdByName($name);
-        } elseif ($htmlOptions['id']===false) {
+            $htmlOptions['id'] = self::getIdByName($name);
+        } elseif ($htmlOptions['id'] === false) {
             unset($htmlOptions['id']);
         }
         return self::tag('input', $htmlOptions);
@@ -793,28 +777,27 @@ class Html
      * Note, this method does not HTML-encode the generated data. You may call {@link encodeArray} to
      * encode it if needed.
      * Please refer to the {@link value} method on how to specify value field, text field and group field.
-     * @param array $models a list of model objects. This parameter
-     * can also be an array of associative arrays (e.g. results of {@link CDbCommand::queryAll}).
+     * @param array $models a list of model objects. 
      * @param string $valueField the attribute name for list option values
      * @param string $textField the attribute name for list option texts
      * @param string $groupField the attribute name for list option group names. If empty, no group will be generated.
      * @return array the list data that can be used in {@link dropDownList}, {@link listBox}, etc.
      */
-    public static function listData($models, $valueField, $textField, $groupField='')
+    public static function listData($models, $valueField, $textField, $groupField = '')
     {
-        $listData=[];
-        if ($groupField==='') {
+        $listData = [];
+        if ($groupField === '') {
             foreach ($models as $model) {
-                $value=self::value($model, $valueField);
-                $text=self::value($model, $textField);
-                $listData[$value]=$text;
+                $value = self::value($model, $valueField);
+                $text = self::value($model, $textField);
+                $listData[$value] = $text;
             }
         } else {
             foreach ($models as $model) {
-                $group=self::value($model, $groupField);
-                $value=self::value($model, $valueField);
-                $text=self::value($model, $textField);
-                $listData[$group][$value]=$text;
+                $group = self::value($model, $groupField);
+                $value = self::value($model, $valueField);
+                $text = self::value($model, $textField);
+                $listData[$group][$value] = $text;
             }
         }
         return $listData;
@@ -834,13 +817,13 @@ class Html
      * @param mixed $defaultValue the default value to return when the attribute does not exist
      * @return mixed the attribute value
      */
-    public static function value($model, $attribute, $defaultValue=null)
+    public static function value($model, $attribute, $defaultValue = null)
     {
         foreach (explode('.', $attribute) as $name) {
             if (is_object($model)) {
-                $model=$model->$name;
+                $model = $model->$name;
             } elseif (is_array($model) && isset($model[$name])) {
-                $model=$model[$name];
+                $model = $model[$name];
             } else {
                 return $defaultValue;
             }
@@ -855,16 +838,11 @@ class Html
      */
     public static function getIdByName($name)
     {
-        return self::ID_PREFIX.str_replace(['[]', '][', '[', ']'], ['', '_', '_', ''], $name);
+        return self::ID_PREFIX . str_replace(['[]', '][', '[', ']'], ['', '_', '_', ''], $name);
     }
-
-    
 
     /**
      * Generates the list options.
-     * @param mixed $selection the selected value(s). This can be either a string for single selection or an array for multiple selections.
-     * @param array $listData the option data (see {@link listData})
-     * @param array $htmlOptions additional HTML attributes. The following two special attributes are recognized:
      * <ul>
      * <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
      * <li>prompt: string, specifies the prompt text shown as the first list option. Its value is empty. Note, the prompt text will NOT be HTML-encoded.</li>
@@ -887,62 +865,67 @@ class Html
      * This option defaults to 'primaryKey', meaning using the 'primaryKey' property value of the objects in the selection.
      * This option has been available since version 1.1.3.</li>
      * </ul>
+     *
+     * @param mixed $selection the selected value(s). This can be either a string for single selection or an array for multiple selections.
+     * @param array $listData the option data (see {@link listData})
+     * @param array $htmlOptions additional HTML attributes. The following two special attributes are recognized:
+
      * @return string the generated list options
      */
     public static function listOptions($selection, $listData, &$htmlOptions)
     {
-        $raw=isset($htmlOptions['encode']) && !$htmlOptions['encode'];
-        $content='';
+        $raw = isset($htmlOptions['encode']) && !$htmlOptions['encode'];
+        $content = '';
         if (isset($htmlOptions['prompt'])) {
-            $content.='<option value="">'.strtr($htmlOptions['prompt'], ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
+            $content .= '<option value="">' . strtr($htmlOptions['prompt'], ['<' => '&lt;', '>' => '&gt;']) . "</option>\n";
             unset($htmlOptions['prompt']);
         }
         if (isset($htmlOptions['empty'])) {
             if (!is_array($htmlOptions['empty'])) {
-                $htmlOptions['empty']=[''=>$htmlOptions['empty']];
+                $htmlOptions['empty'] = ['' => $htmlOptions['empty']];
             }
-            foreach ($htmlOptions['empty'] as $value=>$label) {
-                $content.='<option value="'.self::encode($value).'">'.strtr($label, ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
+            foreach ($htmlOptions['empty'] as $value => $label) {
+                $content .= '<option value="' . self::encode($value) . '">' . strtr($label, ['<' => '&lt;', '>' => '&gt;']) . "</option>\n";
             }
             unset($htmlOptions['empty']);
         }
 
         if (isset($htmlOptions['options'])) {
-            $options=$htmlOptions['options'];
+            $options = $htmlOptions['options'];
             unset($htmlOptions['options']);
         } else {
-            $options=[];
+            $options = [];
         }
 
-        $key=isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
+        $key = isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
         if (is_array($selection)) {
-            foreach ($selection as $i=>$item) {
+            foreach ($selection as $i => $item) {
                 if (is_object($item)) {
-                    $selection[$i]=$item->$key;
+                    $selection[$i] = $item->$key;
                 }
             }
         } elseif (is_object($selection)) {
-            $selection=$selection->$key;
+            $selection = $selection->$key;
         }
 
-        foreach ($listData as $key=>$value) {
+        foreach ($listData as $key => $value) {
             if (is_array($value)) {
-                $content.='<optgroup label="'.($raw?$key : self::encode($key))."\">\n";
-                $dummy=['options'=>$options];
+                $content .= '<optgroup label="' . ($raw ? $key : self::encode($key)) . "\">\n";
+                $dummy = ['options' => $options];
                 if (isset($htmlOptions['encode'])) {
-                    $dummy['encode']=$htmlOptions['encode'];
+                    $dummy['encode'] = $htmlOptions['encode'];
                 }
-                $content.=self::listOptions($selection, $value, $dummy);
-                $content.='</optgroup>'."\n";
+                $content .= self::listOptions($selection, $value, $dummy);
+                $content .= '</optgroup>' . "\n";
             } else {
-                $attributes=['value'=>(string)$key, 'encode'=>!$raw];
+                $attributes = ['value' => (string) $key, 'encode' => !$raw];
                 if (!is_array($selection) && !strcmp($key, $selection) || is_array($selection) && in_array($key, $selection)) {
-                    $attributes['selected']='selected';
+                    $attributes['selected'] = 'selected';
                 }
                 if (isset($options[$key])) {
-                    $attributes=array_merge($attributes, $options[$key]);
+                    $attributes = array_merge($attributes, $options[$key]);
                 }
-                $content.=self::tag('option', $attributes, $raw?(string)$value : self::encode((string)$value))."\n";
+                $content .= self::tag('option', $attributes, $raw ? (string) $value : self::encode((string) $value)) . "\n";
             }
         }
 
@@ -953,63 +936,63 @@ class Html
 
     public static function listOptionsPopular($selection, $listData, &$htmlOptions)
     {
-        $raw=isset($htmlOptions['encode']) && !$htmlOptions['encode'];
-        $content='';
+        $raw = isset($htmlOptions['encode']) && !$htmlOptions['encode'];
+        $content = '';
         if (isset($htmlOptions['prompt'])) {
-            $content.='<option value="">'.strtr($htmlOptions['prompt'], ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
+            $content .= '<option value="">' . strtr($htmlOptions['prompt'], ['<' => '&lt;', '>' => '&gt;']) . "</option>\n";
             unset($htmlOptions['prompt']);
         }
         if (isset($htmlOptions['empty'])) {
             if (!is_array($htmlOptions['empty'])) {
-                $htmlOptions['empty']=[''=>$htmlOptions['empty']];
+                $htmlOptions['empty'] = ['' => $htmlOptions['empty']];
             }
-            foreach ($htmlOptions['empty'] as $value=>$label) {
-                $content.='<option value="'.self::encode($value).'">'.strtr($label, ['<'=>'&lt;', '>'=>'&gt;'])."</option>\n";
+            foreach ($htmlOptions['empty'] as $value => $label) {
+                $content .= '<option value="' . self::encode($value) . '">' . strtr($label, ['<' => '&lt;', '>' => '&gt;']) . "</option>\n";
             }
             unset($htmlOptions['empty']);
         }
 
         if (isset($htmlOptions['options'])) {
-            $options=$htmlOptions['options'];
+            $options = $htmlOptions['options'];
             unset($htmlOptions['options']);
         } else {
-            $options=[];
+            $options = [];
         }
 
-        $key=isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
+        $key = isset($htmlOptions['key']) ? $htmlOptions['key'] : 'primaryKey';
         if (is_array($selection)) {
-            foreach ($selection as $i=>$item) {
+            foreach ($selection as $i => $item) {
                 if (is_object($item)) {
-                    $selection[$i]=$item->$key;
+                    $selection[$i] = $item->$key;
                 }
             }
         } elseif (is_object($selection)) {
-            $selection=$selection->$key;
+            $selection = $selection->$key;
         }
 
-        foreach ($listData as $key=>$value) {
+        foreach ($listData as $key => $value) {
             if (is_array($value)) {
-                $content.='<optgroup label="'.($raw?$key : self::encode($key))."\">\n";
-                $dummy=array('options'=>$options);
+                $content .= '<optgroup label="' . ($raw ? $key : self::encode($key)) . "\">\n";
+                $dummy = array('options' => $options);
                 if (isset($htmlOptions['encode'])) {
-                    $dummy['encode']=$htmlOptions['encode'];
+                    $dummy['encode'] = $htmlOptions['encode'];
                 }
-                $content.=self::listOptions($selection, $value, $dummy);
-                $content.='</optgroup>'."\n";
+                $content .= self::listOptions($selection, $value, $dummy);
+                $content .= '</optgroup>' . "\n";
             } else {
                 // Проверка на прочерк между элементами списка
-                $attributes=array('value'=>(string)$value, 'encode'=>!$raw);
-                if ($value=='---') {
-                    $attributes['value']='';
+                $attributes = array('value' => (string) $value, 'encode' => !$raw);
+                if ($value == '---') {
+                    $attributes['value'] = '';
                 }
 
                 if (!is_array($selection) && !strcmp($value, $selection) || is_array($selection) && in_array($key, $selection)) {
-                    $attributes['selected']='selected';
+                    $attributes['selected'] = 'selected';
                 }
                 if (isset($options[$key])) {
-                    $attributes=array_merge($attributes, $options[$key]);
+                    $attributes = array_merge($attributes, $options[$key]);
                 }
-                $content.=self::tag('option', $attributes, $raw?(string)$value : self::encode((string)$value))."\n";
+                $content .= self::tag('option', $attributes, $raw ? (string) $value : self::encode((string) $value)) . "\n";
             }
         }
 
@@ -1025,9 +1008,9 @@ class Html
     protected static function addErrorCss(&$htmlOptions)
     {
         if (isset($htmlOptions['class'])) {
-            $htmlOptions['class'].=' '.self::$errorCss;
+            $htmlOptions['class'] .= ' ' . self::$errorCss;
         } else {
-            $htmlOptions['class']=self::$errorCss;
+            $htmlOptions['class'] = self::$errorCss;
         }
     }
 
@@ -1041,48 +1024,48 @@ class Html
      */
     public static function renderAttributes($htmlOptions)
     {
-        static $specialAttributes=[
-            'checked'=>1,
-            'declare'=>1,
-            'defer'=>1,
-            'disabled'=>1,
-            'ismap'=>1,
-            'multiple'=>1,
-            'nohref'=>1,
-            'noresize'=>1,
-            'readonly'=>1,
-            'selected'=>1,
+        static $specialAttributes = [
+            'checked' => 1,
+            'declare' => 1,
+            'defer' => 1,
+            'disabled' => 1,
+            'ismap' => 1,
+            'multiple' => 1,
+            'nohref' => 1,
+            'noresize' => 1,
+            'readonly' => 1,
+            'selected' => 1,
         ];
 
-        if ($htmlOptions===[]) {
+        if ($htmlOptions === []) {
             return '';
         }
 
-        $html='';
+        $html = '';
         if (isset($htmlOptions['encode'])) {
-            $raw=!$htmlOptions['encode'];
+            $raw = !$htmlOptions['encode'];
             unset($htmlOptions['encode']);
         } else {
-            $raw=false;
+            $raw = false;
         }
 
         if ($raw) {
-            foreach ($htmlOptions as $name=>$value) {
+            foreach ($htmlOptions as $name => $value) {
                 if (isset($specialAttributes[$name])) {
                     if ($value) {
                         $html .= ' ' . $name . '="' . $name . '"';
                     }
-                } elseif ($value!==null) {
+                } elseif ($value !== null) {
                     $html .= ' ' . $name . '="' . $value . '"';
                 }
             }
         } else {
-            foreach ($htmlOptions as $name=>$value) {
+            foreach ($htmlOptions as $name => $value) {
                 if (isset($specialAttributes[$name])) {
                     if ($value) {
                         $html .= ' ' . $name . '="' . $name . '"';
                     }
-                } elseif ($value!==null) {
+                } elseif ($value !== null) {
                     $html .= ' ' . $name . '="' . self::encode($value) . '"';
                 }
             }

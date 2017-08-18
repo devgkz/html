@@ -68,7 +68,7 @@ Encodes special characters into HTML entities.
 Html::encode( string $text ): string
 ```
 
-The \CApplication::charset will be used for encoding.
+
 
 * This method is **static**.
 **Parameters:**
@@ -159,8 +159,7 @@ Html::tag( string $tag, array $htmlOptions = array(), mixed $content = false, bo
 If an 'encode' attribute is given and its value is false,
 the rest of the attribute values will NOT be HTML-encoded.
 Attributes whose value is null will not be rendered. |
-| `$content` | **mixed** | the content to be enclosed between open and close element tags. It will not be HTML-encoded.
-If false, it means there is no body content. |
+| `$content` | **mixed** | the content to be enclosed between open and close element tags. It will not be HTML-encoded. If false, it means there is no body content. |
 | `$closeTag` | **boolean** | whether to generate the close tag. |
 
 
@@ -177,7 +176,7 @@ the generated HTML element tag
 Generates an open HTML element.
 
 ```php
-Html::openTag( string $tag, array $htmlOptions = array() ): string
+Html::openTag( string $tag,  $htmlOptions = array() ): string
 ```
 
 
@@ -188,10 +187,7 @@ Html::openTag( string $tag, array $htmlOptions = array() ): string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tag` | **string** | the tag name |
-| `$htmlOptions` | **array** | the element attributes. The values will be HTML-encoded using {@link encode()}.
-If an 'encode' attribute is given and its value is false,
-the rest of the attribute values will NOT be HTML-encoded.
-Attributes whose value is null will not be rendered. |
+| `$htmlOptions` | **** |  |
 
 
 **Return Value:**
@@ -650,8 +646,7 @@ tag instead of 'input' tag.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$label` | **string** | the button label. Note that this value will be directly inserted in the button element
-without being HTML-encoded. |
+| `$label` | **string** | the button label. Note that this value will be directly inserted in the button element without being HTML-encoded. |
 | `$htmlOptions` | **array** | additional HTML attributes. |
 
 
@@ -789,14 +784,7 @@ Html::label( string $label, string $for, array $htmlOptions = array() ): string
 | `$label` | **string** | label text. Note, you should HTML-encode the text if needed. |
 | `$for` | **string** | the ID of the HTML element that this label is associated with.
 If this is false, the 'for' attribute for the label tag will not be rendered. |
-| `$htmlOptions` | **array** | additional HTML attributes.
-The following HTML option is recognized:
-<ul>
-<li>required: if this is set and is true, the label will be styled
-with CSS class 'required' (customizable with CHtml::$requiredCss),
-and be decorated with {@link CHtml::beforeRequiredLabel} and
-{@link CHtml::afterRequiredLabel}.</li>
-</ul> |
+| `$htmlOptions` | **array** | additional HTML attributes. |
 
 
 **Return Value:**
@@ -966,11 +954,7 @@ Html::radioButton( string $name, boolean $checked = false, array $htmlOptions = 
 |-----------|------|-------------|
 | `$name` | **string** | the input name |
 | `$checked` | **boolean** | whether the radio button is checked |
-| `$htmlOptions` | **array** | additional HTML attributes.
-Since version 1.1.2, a special option named 'uncheckValue' is available that can be used to specify
-the value returned when the radio button is not checked. When set, a hidden field is rendered so that
-when the radio button is not checked, we can still obtain the posted uncheck value.
-If 'uncheckValue' is not set or set to NULL, the hidden field will not be rendered. |
+| `$htmlOptions` | **array** | additional HTML attributes. |
 
 
 **Return Value:**
@@ -1020,20 +1004,9 @@ Generates a drop down list.
 Html::dropDownList( string $name, string $select, array $data, array $htmlOptions = array() ): string
 ```
 
-
-
-* This method is **static**.
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** | the input name |
-| `$select` | **string** | the selected value |
-| `$data` | **array** | data for generating the list options (value=>display).
-You may use {@link listData} to generate this data.
-Please refer to {@link listOptions} on how this data is used to generate the list options.
-Note, the values and labels will be automatically HTML-encoded by this method. |
-| `$htmlOptions` | **array** | additional HTML attributes.
+You may use \listData to generate this data.
+Please refer to \listOptions on how this data is used to generate the list options.
+Note, the values and labels will be automatically HTML-encoded by this method.
 In addition, the following options are also supported specifically for dropdown list:
 <ul>
 <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
@@ -1051,7 +1024,17 @@ Each pair will be used to render a list option at the beginning. Note, the text 
     ];
 </pre>
 </li>
-</ul> |
+</ul>
+
+* This method is **static**.
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** | the input name |
+| `$select` | **string** | the selected value |
+| `$data` | **array** | data for generating the list options (value=>display). |
+| `$htmlOptions` | **array** | additional HTML attributes. |
 
 
 **Return Value:**
@@ -1095,20 +1078,9 @@ Generates a list box.
 Html::listBox( string $name, mixed $select, array $data, array $htmlOptions = array() ): string
 ```
 
-
-
-* This method is **static**.
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** | the input name |
-| `$select` | **mixed** | the selected value(s). This can be either a string for single selection or an array for multiple selections. |
-| `$data` | **array** | data for generating the list options (value=>display)
-You may use {@link listData} to generate this data.
-Please refer to {@link listOptions} on how this data is used to generate the list options.
-Note, the values and labels will be automatically HTML-encoded by this method. |
-| `$htmlOptions` | **array** | additional HTML attributes.
+You may use \listData to generate this data.
+Please refer to \listOptions on how this data is used to generate the list options.
+Note, the values and labels will be automatically HTML-encoded by this method.
 In addition, the following options are also supported specifically for list box:
 <ul>
 <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
@@ -1126,7 +1098,17 @@ Each pair will be used to render a list option at the beginning. Note, the text 
     ];
 </pre>
 </li>
-</ul> |
+</ul>
+
+* This method is **static**.
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** | the input name |
+| `$select` | **mixed** | the selected value(s). This can be either a string for single selection or an array for multiple selections. |
+| `$data` | **array** | data for generating the list options (value=>display) |
+| `$htmlOptions` | **array** | additional HTML attributes. |
 
 
 **Return Value:**
@@ -1146,7 +1128,6 @@ Html::normalizeUrl( mixed $url ): string
 ```
 
 If the input parameter is an empty string, the currently requested URL will be returned.
-
 If the input parameter is a non-empty string, it is treated as a valid URL and will
 be returned without any change.
 
@@ -1185,8 +1166,7 @@ Please refer to the \value method on how to specify value field, text field and 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$models` | **array** | a list of model objects. This parameter
-can also be an array of associative arrays (e.g. results of {@link CDbCommand::queryAll}). |
+| `$models` | **array** | a list of model objects. |
 | `$valueField` | **string** | the attribute name for list option values |
 | `$textField` | **string** | the attribute name for list option texts |
 | `$groupField` | **string** | the attribute name for list option group names. If empty, no group will be generated. |
@@ -1268,16 +1248,6 @@ Generates the list options.
 Html::listOptions( mixed $selection, array $listData, array &$htmlOptions ): string
 ```
 
-
-
-* This method is **static**.
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$selection` | **mixed** | the selected value(s). This can be either a string for single selection or an array for multiple selections. |
-| `$listData` | **array** | the option data (see {@link listData}) |
-| `$htmlOptions` | **array** | additional HTML attributes. The following two special attributes are recognized:
 <ul>
 <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
 <li>prompt: string, specifies the prompt text shown as the first list option. Its value is empty. Note, the prompt text will NOT be HTML-encoded.</li>
@@ -1299,7 +1269,16 @@ This is used when the selection is represented in terms of objects. In this case
 the property named by the key option of the objects will be treated as the actual selection value.
 This option defaults to 'primaryKey', meaning using the 'primaryKey' property value of the objects in the selection.
 This option has been available since version 1.1.3.</li>
-</ul> |
+</ul>
+
+* This method is **static**.
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$selection` | **mixed** | the selected value(s). This can be either a string for single selection or an array for multiple selections. |
+| `$listData` | **array** | the option data (see {@link listData}) |
+| `$htmlOptions` | **array** | additional HTML attributes. The following two special attributes are recognized: |
 
 
 **Return Value:**
